@@ -8,7 +8,6 @@ from pprint import pprint
 inspect.getmembers(telepot, predicate=inspect.ismethod)
 
 dir(telepot)
-dir(telepot)
 
 def handle(msg):
     pprint(msg)
