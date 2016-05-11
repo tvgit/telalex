@@ -3,14 +3,13 @@ __author__ = 'rh'
 
 import telepot
 import inspect
-from pprint import pprint
+import time
+import pprint
 
-inspect.getmembers(telepot, predicate=inspect.ismethod)
+# inspect.getmembers(telepot, predicate=inspect.ismethod)
 
 dir(telepot)
 
-def handle(msg):
-    pprint(msg)
 
 # vvv
 # (zeichenkette)  = "ich heisse alessio"
@@ -28,22 +27,31 @@ def handle(msg):
 print (" ------------ telepot Anfang ")
 
 bot = telepot.Bot('209638089:AAH6KrKt8kU6VC-nAQlpXgp-wsyUycMMiBs')
-# bot.message_loop(handle)
-# bot.message_loop(handle)
 print bot.getMe()
 
-response = bot.getUpdates()
+# response = bot.getUpdates()
+# print("response = "),
+# pprint(response)
 
-pprint(response)
+def milchflaschenalarm():
+    mf = 7 #   milchflasche
+    for mf in range (7,1, -1) :
+        print mf
+        if mf <= 3:
+            # print "Es gibt zu wenig Milch!"
+            nachricht = "Es gibt zu wenig Milch, nur noch " + str(mf)  + ' Flaschen'
+            bot.sendMessage(217727356, nachricht )
 
-mf = 7 #   milchflasche
-for mf in range (7,1, -1) :
-    print mf
-    if mf <= 3:
-        # print "Es gibt zu wenig Milch!"
-        nachricht = "Es gibt zu wenig Milch, nur noch " + str(mf)  + ' Flaschen'
-        bot.sendMessage(217727356, nachricht )
+def handle(msg):
+    pprint.pprint(msg)
+    # Do your stuff here ...
 
+bot.message_loop(handle)
+print ('Listening ...')
+
+# Keep the program running.
+while 1:
+    time.sleep(10)
 
 
 
