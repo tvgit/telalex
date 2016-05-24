@@ -6,9 +6,9 @@ import inspect
 import time
 import pprint
 
-# inspect.getmembers(telepot, predicate=inspect.ismethod)
+inspect.getmembers(telepot, predicate=inspect.ismethod)
 
-dir(telepot)
+pprint.pprint (dir(telepot.Bot))
 
 
 # vvv
@@ -26,8 +26,13 @@ dir(telepot)
 
 print (" ------------ telepot Anfang ")
 
-bot = telepot.Bot('209638089:AAH6KrKt8kU6VC-nAQlpXgp-wsyUycMMiBs')
+TOKEN = '209638089:AAH6KrKt8kU6VC-nAQlpXgp-wsyUycMMiBs'
+id = '217727356'
+
+# bot = telepot.Bot('209638089:AAH6KrKt8kU6VC-nAQlpXgp-wsyUycMMiBs')
+bot = telepot.Bot(TOKEN)
 print bot.getMe()
+print 'nach getme'
 
 # response = bot.getUpdates()
 # print("response = "),
@@ -40,13 +45,14 @@ def milchflaschenalarm():
         if mf <= 3:
             # print "Es gibt zu wenig Milch!"
             nachricht = "Es gibt zu wenig Milch, nur noch " + str(mf)  + ' Flaschen'
-            bot.sendMessage(217727356, nachricht )
-
+            bot.sendMessage(id, nachricht )
 def handle(msg):
     pprint.pprint(msg)
     # Do your stuff here ...
 
+print 'message_loop'
 bot.message_loop(handle)
+
 print ('Listening ...')
 
 # Keep the program running.
