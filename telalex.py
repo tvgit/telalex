@@ -1,3 +1,5 @@
+
+
 __author__ = 'rh'
 # doc: https://github.com/nickoala/telepot
 
@@ -27,7 +29,7 @@ pprint.pprint (dir(telepot.Bot))
 print (" ------------ telepot Anfang ")
 
 TOKEN = '209638089:AAH6KrKt8kU6VC-nAQlpXgp-wsyUycMMiBs'
-id = '217727356'
+id = '209638089'
 
 # bot = telepot.Bot('209638089:AAH6KrKt8kU6VC-nAQlpXgp-wsyUycMMiBs')
 bot = telepot.Bot(TOKEN)
@@ -47,7 +49,9 @@ def milchflaschenalarm():
             nachricht = "Es gibt zu wenig Milch, nur noch " + str(mf)  + ' Flaschen'
             bot.sendMessage(id, nachricht )
 def handle(msg):
-    pprint.pprint(msg)
+    #pprint.pprint(msg)
+    content_type, chat_type, chat_id = telepot.glance(msg)
+    print (content_type, chat_type, chat_id)
     # Do your stuff here ...
 
 print 'message_loop'
