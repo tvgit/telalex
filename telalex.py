@@ -7,11 +7,10 @@ import telepot
 import inspect
 import time
 import pprint
+import telegram_token
 
-inspect.getmembers(telepot, predicate=inspect.ismethod)
-
-pprint.pprint (dir(telepot.Bot))
-
+# inspect.getmembers(telepot, predicate=inspect.ismethod)
+# pprint.pprint (dir(telepot.Bot))
 
 # vvv
 # (zeichenkette)  = "ich heisse alessio"
@@ -27,9 +26,8 @@ pprint.pprint (dir(telepot.Bot))
 # ----------------------------------------------------
 
 print (" ------------ telepot Anfang ")
-
-TOKEN = '209638089:AAH6KrKt8kU6VC-nAQlpXgp-wsyUycMMiBs'
-id = '209638089'
+TOKEN = telegram_token.TOKEN
+id = telegram_token.id
 
 # bot = telepot.Bot('209638089:AAH6KrKt8kU6VC-nAQlpXgp-wsyUycMMiBs')
 bot = telepot.Bot(TOKEN)
@@ -49,10 +47,14 @@ def milchflaschenalarm():
             nachricht = "Es gibt zu wenig Milch, nur noch " + str(mf)  + ' Flaschen'
             bot.sendMessage(id, nachricht )
 def handle(msg):
-    #pprint.pprint(msg)
-    content_type, chat_type, chat_id = telepot.glance(msg)
-    print (content_type, chat_type, chat_id)
-    # Do your stuff here ...
+    # pprint.pprint(msg)
+    # pprint.pprint(msg['text'])
+    # print msg['text']
+    for key in msg:
+        print key, ':', msg[key]
+    # content_type, chat_type, chat_id = telepot.glance(msg)
+    # print (content_type, chat_type, chat_id)
+    # # Do your stuff here ...
 
 print 'message_loop'
 bot.message_loop(handle)
