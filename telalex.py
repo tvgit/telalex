@@ -1,4 +1,5 @@
 __author__ = 'ak-rh'
+__version__= '0.1'
 # doc: https://github.com/nickoala/telepot
 
 
