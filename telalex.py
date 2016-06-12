@@ -1,6 +1,4 @@
-
-
-__author__ = 'rh'
+__author__ = 'ak-rh'
 # doc: https://github.com/nickoala/telepot
 
 import telepot
@@ -9,34 +7,23 @@ import time
 import pprint
 import telegram_token
 
-# inspect.getmembers(telepot, predicate=inspect.ismethod)
 # pprint.pprint (dir(telepot.Bot))
 
-# vvv
-# (zeichenkette)  = "ich heisse alessio"
-# print(zeichenkette)
-# print(type(zeichenkette))
-# new name
-
-# print(type(a))
-# a = 1.6
-# print(type(a))
-
-
-# ----------------------------------------------------
-
-print (" ------------ telepot Anfang ")
 TOKEN = telegram_token.TOKEN
-id = telegram_token.id
+id    = telegram_token.id
 
-# bot = telepot.Bot('209638089:AAH6KrKt8kU6VC-nAQlpXgp-wsyUycMMiBs')
 bot = telepot.Bot(TOKEN)
-print bot.getMe()
-print 'nach getme'
 
 # response = bot.getUpdates()
 # print("response = "),
 # pprint(response)
+
+
+def ini_telalex():
+    print (" - telepot Anfang - ")
+    print bot.getMe()
+    print 'nach getme'
+
 
 def milchflaschenalarm():
     mf = 7 #   milchflasche
@@ -46,27 +33,26 @@ def milchflaschenalarm():
             # print "Es gibt zu wenig Milch!"
             nachricht = "Es gibt zu wenig Milch, nur noch " + str(mf)  + ' Flaschen'
             bot.sendMessage(id, nachricht )
+
 def handle(msg):
-    # pprint.pprint(msg)
+    print '###################'
+    pprint.pprint(msg)
     # pprint.pprint(msg['text'])
     # print msg['text']
+    print '-------------------'
     for key in msg:
         print key, ':', msg[key]
     # content_type, chat_type, chat_id = telepot.glance(msg)
     # print (content_type, chat_type, chat_id)
     # # Do your stuff here ...
 
-print 'message_loop'
-bot.message_loop(handle)
 
-print ('Listening ...')
+if __name__ == '__main__':
+    ini_telalex()
+    print 'message_loop'
+    bot.message_loop(handle)
 
-# Keep the program running.
-while 1:
-    time.sleep(10)
-
-
-
-
-
-
+    print ('Listening ...')
+    # Keep the program running.
+    while 1:
+        time.sleep(10)
