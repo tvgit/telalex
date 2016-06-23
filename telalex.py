@@ -1,4 +1,4 @@
-__author__ = 'ak-rh'
+__author__ = 'ak-rh für Alex'
 __version__= '0.2'
 # doc: https://github.com/nickoala/telepot
 
