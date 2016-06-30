@@ -1,4 +1,5 @@
-__author__ = 'ak-rh fÃ¼r Alex'
+# -*- coding: latin-1 -*-
+__author__ = 'ak-rh für Alex'
 __version__= '0.2'
 # doc: https://github.com/nickoala/telepot
 
