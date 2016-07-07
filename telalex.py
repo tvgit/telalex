@@ -15,7 +15,7 @@ import telegram_token
 TOKEN = telegram_token.TOKEN
 id    = telegram_token.id
 
-bot = telepot.Bot(TOKEN)
+bot   = telepot.Bot(TOKEN)
 
 # response = bot.getUpdates()
 # print("response = "),
@@ -48,7 +48,11 @@ def handle(msg):
     # content_type, chat_type, chat_id = telepot.glance(msg)
     # print (content_type, chat_type, chat_id)
     # # Do your stuff here ...
-
+    print '---- Text: '
+    print msg['text']
+    print '---- Text nochmal: '
+    mykey = 'text'
+    print msg[mykey]
 
 if __name__ == '__main__':
     ini_telalex()
